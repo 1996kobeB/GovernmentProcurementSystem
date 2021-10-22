@@ -144,10 +144,7 @@ export default {
     async loadData () {
       this.loading = true;
       const params = this.getParmas();
-      await postAction(
-        "https://www.fastmock.site/mock/bf36ad8bf6b334ce98f1d6f046f1b7df/api/apiPost",
-        params
-      ).then((res) => {
+      await postAction("/post/area", params).then((res) => {
         if (res.data.code === "200") {
           // 渲染列表
           this.dataSource = res.data.data.records;
@@ -209,8 +206,8 @@ export default {
     // 获取post的参数
     getParmas () {
       const params = JSON.parse(JSON.stringify(this.queryParams));
-      params.pageSize = this.pagination.pageSize;
-      params.pageNum = this.pagination.defaultCurrent;
+      // params.pageSize = this.pagination.pageSize;
+      // params.pageNum = this.pagination.defaultCurrent;
       Reflect.deleteProperty(params, "timeChoose");
       return params;
     },

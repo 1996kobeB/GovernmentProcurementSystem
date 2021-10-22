@@ -10,7 +10,15 @@ const config = {
 		sockHost: "localhost",
 		disableHostCheck: true, //webpack4.0 开启热更新
 		// 代理
-		// proxy: {},
+		proxy: {
+			'/post': {
+				target: 'http://localhost:8000/',
+				changeOrigin: true,
+				pathRewrite: {
+						'^/post': '',
+				},
+		},
+		},
 	},
 	productionSourceMap: false,
 	configureWebpack: {
