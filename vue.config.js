@@ -5,19 +5,19 @@ const IS_PRODOUCT = process.env.NODE_ENV === "production";
 const config = {
 	publicPath: process.env.BASE_URL,
 	devServer: {
-		port: 3000,
+		port: 5000,
 		open: true,
 		sockHost: "localhost",
 		disableHostCheck: true, //webpack4.0 开启热更新
 		// 代理
 		proxy: {
-			'/post': {
-				target: 'http://localhost:8000/',
+			"/post": {
+				target: "http://localhost:8000/",
 				changeOrigin: true,
 				pathRewrite: {
-						'^/post': '',
+					"^/post": "",
 				},
-		},
+			},
 		},
 	},
 	productionSourceMap: false,
